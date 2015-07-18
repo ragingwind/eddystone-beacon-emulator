@@ -15,8 +15,7 @@ $ npm install --save eddystone
 ```js
 var eddystone = require('eddystone');
 
-eddystone('unicorns');
-//=> unicorns & rainbows
+eddystone.advertise(opts);
 ```
 
 
@@ -29,17 +28,7 @@ $ npm install --global eddystone
 $ eddystone --help
 
   Usage
-    eddystone [input]
-
-  Example
-    eddystone
-    unicorns & rainbows
-
-    eddystone ponies
-    ponies & rainbows
-
-  Options
-    --foo  Lorem ipsum. Default: false
+    eddystone --name eddystone simulator --url http://goo.gl/eddystone --configable',
 ```
 
 

@@ -1,10 +1,22 @@
 'use strict';
-module.exports = function (str, opts) {
-	if (typeof str !== 'string') {
-		throw new TypeError('Expected a string');
+
+var bleno = require('bleno');
+var configService = require('./libs/config-service');
+
+function advertise(opts) {
+	if (bleno.state === 'poweredOn') {
+		if (opts.configable) {
+			configService.advertise(opts, function(err) {
+				console.log('Ended of config service', err);
+			});
+		}
+	} else {
+		bleno.once('stateChange', function() {
+			advertise(opts);
+		});
 	}
+}
 
-	opts = opts || {};
-
-	return str + ' & ' + (opts.postfix || 'rainbows');
+module.exports = {
+	advertise: advertise
 };
