@@ -11,7 +11,7 @@
   },
   "bin": "cli.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.12.0"
   },
   "scripts": {
     "test": "mocha"
@@ -27,11 +27,9 @@
   ],
   "dependencies": {
     "bleno": "^0.1.14",
-    "eddystone-beacon": "^0.3.0",
     "meow": "^3.3.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "uri-beacon-scanner": "^1.0.1"
+    "mocha": "*"
   }
 }
