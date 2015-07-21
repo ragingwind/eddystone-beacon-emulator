@@ -1,3 +1,4 @@
+/*global it:true */
 'use strict';
 
 var assert = require('assert');
@@ -24,6 +25,13 @@ it('should returns valid header frame', function () {
 	assert(EDDYSTONE_FRAME.every(function (val, idx) {
 		return val === buffer[idx];
 	}));
+});
+
+it('should write to limit length', function () {
+	var frame = new ESFrame();
+	var buffer = frame.getBuffer();
+
+	buffer.push('1234567890', 5);
 });
 
 it('should returns valid Eddystone UID frames', function () {
