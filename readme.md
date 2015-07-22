@@ -28,30 +28,8 @@ $ npm install --global eddystone
 $ eddystone --help
 
   Usage
-    eddystone --name eddystone simulator --url http://goo.gl/eddystone --configable',
+    eddystone --name eddystone --url http://goo.gl/eddystone',
 ```
-
-
-## API
-
-### eddystone(input, [options])
-
-#### input
-
-*Required*  
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`  
-Default: `false`
-
-Lorem ipsum.
-
 
 ## License
 

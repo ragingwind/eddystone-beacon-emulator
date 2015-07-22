@@ -6,9 +6,18 @@ var url = require('./lib/url-advertising');
 var tlm = require('./lib/tlm-advertising');
 
 function advertiseAll(opts) {
-	uid.advertise(opts);
-	url.advertise(opts);
-	tlm.advertise(opts);
+	// uid.advertise(opts); // disabled, It cause of xpc connection error
+	console.log('Start advertising TLM');
+	tlm.advertise(opts, function () {
+		setTimeout(function () {
+			console.log('Start advertising URL');
+			url.advertise(opts, function () {
+				setTimeout(function () {
+					advertiseAll(opts);
+				}, 3000);
+			});
+		}, 1000);
+	});
 }
 
 function start(opts, done) {
