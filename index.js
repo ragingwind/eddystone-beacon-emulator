@@ -1,22 +1,30 @@
 'use strict';
 
-var bleno = require('bleno');
-var configService = require('./libs/config-service');
+var config = require('./lib/config-advertising');
+var uid = require('./lib/uid-advertising');
+var url = require('./lib/url-advertising');
+var tlm = require('./lib/tlm-advertising');
 
-function advertise(opts) {
-	if (bleno.state === 'poweredOn') {
-		if (opts.configable) {
-			configService.advertise(opts, function(err) {
-				console.log('Ended of config service', err);
-			});
-		}
-	} else {
-		bleno.once('stateChange', function() {
-			advertise(opts);
+function advertiseAll(opts) {
+	uid.advertise(opts);
+	url.advertise(opts);
+	tlm.advertise(opts);
+}
+
+function start(opts, done) {
+	if (opts.config) {
+		config.advertise(function(err) {
+			if (!err) {
+				advertiseAll(opts);
+			} else {
+				done(err);
+			}
 		});
+	} else {
+		advertiseAll(opts);
 	}
 }
 
 module.exports = {
-	advertise: advertise
+	advertise: start
 };
