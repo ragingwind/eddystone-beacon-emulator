@@ -2,6 +2,9 @@
   "name": "eddystone",
   "version": "0.0.0",
   "description": "My stupendous module",
+  "os": [
+    "darwin"
+  ],
   "license": "MIT",
   "repository": "ragingwind/eddystone",
   "author": {
@@ -11,7 +14,7 @@
   },
   "bin": "cli.js",
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=0.10.0"
   },
   "scripts": {
     "test": "mocha"
