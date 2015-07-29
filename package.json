@@ -29,10 +29,11 @@
     ""
   ],
   "dependencies": {
-    "bengbenge": "^0.1.5",
     "bleno": "^0.1.14",
     "eddystone-beacon": "git://github.com/don/node-eddystone-beacon",
-    "meow": "^3.3.0"
+    "meow": "^3.3.0",
+    "node-uuid": "^1.4.3",
+    "pulsebeat": "^0.1.0"
   },
   "devDependencies": {
     "mocha": "*"

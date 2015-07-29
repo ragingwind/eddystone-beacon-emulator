@@ -15,8 +15,6 @@ var cli = meow({
 		'  --nid namespace ID, such as FQDN or UUID, for UID advertising as namespace. will be hashed and truncated in 10Byte',
 		'	 --bid Beacon ID for UID advertising, 6Byte',
 		'	 --tx TX Power start from -100 to 20. The value 0x12 is interpreted as +18dBm',
-		'	 --volt Voltage of battery, 2Byte',
-		'	 --temp Temperature of Beacon, 2Byte',
 		'  --start-with-config Run into config service first and then start rest of advertisings services'
 	]
 }, {
