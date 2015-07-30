@@ -33,7 +33,8 @@
     "eddystone-beacon": "git://github.com/don/node-eddystone-beacon",
     "meow": "^3.3.0",
     "node-uuid": "^1.4.3",
-    "pulsebeat": "^0.1.0"
+    "pulsebeat": "^0.1.0",
+    "random-measure": "^0.1.0"
   },
   "devDependencies": {
     "mocha": "*"

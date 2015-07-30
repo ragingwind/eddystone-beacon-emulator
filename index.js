@@ -3,54 +3,57 @@
 var bleno = require('bleno');
 var beacon = require('eddystone-beacon');
 var uid = require('./lib/eddystone-uid');
+var RandomMeasure = require('random-measure');
 var PulseBeat = require('pulsebeat');
 
-// randomize functions for simulator.
-// code copy from [node-eddystone-beacon](https://goo.gl/9BbmDW)
-function randomBatteryVoltage() {
-	// between 500 and 10,000
-	return Math.floor((Math.random() * 10000) + 500);
-}
-
-function randomTemprature() {
-	// between -128.0(0x8000) ~ 128.0
-	return (Math.random() * 256.0) - 128.0;
+function createMeasurer(range) {
+	return RandomMeasure.isRange(range) ? new RandomMeasure(range) : {
+		measure: function() {
+			return range;
+		}
+	};
 }
 
 function advertise(opts) {
-	console.log('Start advertising TLM', opts);
-
-	var options = {
-	  tlmCount: 2,  // 2 TLM frames
-	  tlmPeriod: 10, // every 10 frames
+	var voltMeasurer = createMeasurer(opts.volt);
+	var tempMeasurer = createMeasurer(opts.temp);
+	var namespace = uid.toNamespace(opts.nid);
+	var instanceId = uid.toHexInstanceId(opts.bid);
+	var advertiseOpts = {
+	  tlmCount: opts.tlm || 2,
+	  tlmPeriod: 10,
 		txPowerLevel: opts.tx
 	};
 
 	var advertiers = new PulseBeat([
 		function() {
-			var namespace = uid.toNamespace(opts.nid);
-			var instanceId = uid.toHexInstanceId(opts.bid);
-
-			console.log('Start advertising for UID. namespace: %s, instance ID: %s', namespace, instanceId);
-			beacon.advertiseUid(namespace, instanceId, options);
+			console.log('Advertise for UID with namespace: %s, instance ID: %s', namespace, instanceId);
+			beacon.advertiseUid(namespace, instanceId, advertiseOpts);
 		},
 		function() {
-			console.log('Start advertising for URL', opts.url);
-			beacon.advertiseUrl(opts.url, options);
+			console.log('Advertise for URL with url: %s', opts.url);
+			beacon.advertiseUrl(opts.url, advertiseOpts);
 		},
 		function() {
-			var volt = opts.volt || randomBatteryVoltage();
-			var temp = opts.temp || randomTemprature();
+			var volt = voltMeasurer.measure();
+			var temp = tempMeasurer.measure();
 
-			console.log('Update telemetry data to voltage: %s, temprature: %s', volt, temp);
+			console.log('TLM data is updated to voltage: %s, temprature: %s', volt, temp);
 
 			beacon.setBatteryVoltage(volt);
 			beacon.setTemperature(temp);
 		}
 	]);
 
+	console.log('UID/URL/TLM advertising services will be starting');
+
+	// start TLM advertising
+	beacon.advertiseTlm();
+
+	// start UID/URL advertising
 	advertiers.beat({timeout: 2000, interval:true});
 
+	// bind to bleno events
 	bleno.on('advertisingError', function (err) {
 		console.log('Advertising has been failed');
 	});
