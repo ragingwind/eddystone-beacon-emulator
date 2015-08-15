@@ -2,7 +2,7 @@
 
 var bleno = require('bleno');
 var beacon = require('eddystone-beacon');
-var uid = require('./lib/eddystone-uid');
+var uid = require('eddystone-uid');
 var RandomMeasure = require('random-measure');
 var PulseBeat = require('pulsebeat');
 
@@ -18,7 +18,7 @@ function advertise(opts) {
 	var voltMeasurer = createMeasurer(opts.volt);
 	var tempMeasurer = createMeasurer(opts.temp);
 	var namespace = uid.toNamespace(opts.nid);
-	var instanceId = uid.toHexInstanceId(opts.bid);
+	var instanceId = uid.toBeaconId(opts.bid);
 	var advertiseOpts = {
 	  tlmCount: opts.tlm || 2,
 	  tlmPeriod: 10,
