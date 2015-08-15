@@ -30,10 +30,13 @@
   ],
   "dependencies": {
     "bleno": "^0.1.14",
-    "eddystone-beacon": "git://github.com/don/node-eddystone-beacon",
+    "debug": "^2.2.0",
+    "eddystone-beacon": "^1.0.1",
+    "eddystone-beacon-config": "^0.1.2",
     "eddystone-uid": "^0.1.2",
     "meow": "^3.3.0",
     "node-uuid": "^1.4.3",
+    "object-assign": "^3.0.0",
     "pulsebeat": "^0.1.0",
     "random-measure": "^0.1.0"
   },
