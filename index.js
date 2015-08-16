@@ -1,6 +1,6 @@
 'use strict';
 
-var debug = require('debug')('eddystone:simulator');
+var debug = require('debug')('eddystone:emulator');
 var bleno = require('bleno');
 var beacon = require('eddystone-beacon');
 var uid = require('eddystone-uid');
@@ -110,7 +110,7 @@ function start(opts) {
 	// configure default data with options passing from cli
 	beaconConfig = defaultBeaconConfig = assign({
 		config: false,
-		name: 'Eddystone beacon simulator',
+		name: 'Eddystone beacon emulator',
 		uriData: opts.uri || 'https://goo.gl/r8iJqW',
 		nid: '8b0ca750-e7a7-4e14-bd99-095477cb3e77',
 		bid: 'bid001',

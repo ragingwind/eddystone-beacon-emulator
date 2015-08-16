@@ -1,12 +1,12 @@
 {
-  "name": "eddystone",
+  "name": "eddystone-beacon-emulator",
   "version": "0.0.0",
-  "description": "My stupendous module",
+  "description": "Emulator for Eddystone beacon peripherals",
   "os": [
     "darwin"
   ],
   "license": "MIT",
-  "repository": "ragingwind/eddystone",
+  "repository": "ragingwind/node-eddystone-beacon-emulator",
   "author": {
     "name": "ragingwind",
     "email": "ragingwind@gmail.com",

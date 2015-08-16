@@ -1,22 +1,22 @@
-# eddystone-beacon-simulator
+# eddystone-beacon-emulator
 
-> Simulator for Eddystone beacon device
+> Emulator for Eddystone beacon peripherals
 
 ## Install
 
 ```
-$ npm install --global eddystone-beacon-simulator
+$ npm install --global eddystone-beacon-emulator
 ```
 
 ```
-$ eddystone-beacon-simulator --help
+$ eddystone-beacon-emulator --help
 
   Usage
-    eddystone-beacon-simulator --config --uri=http://goo.gl/eddystone'
-    eddystone-beacon-simulator --uri=http://goo.gl/eddystone'
-		eddystone-beacon-simulator --nid=http://google.com --bid=123456'
-		eddystone-beacon-simulator --volt=0 --temp=-128
-		eddystone-beacon-simulator --volt=5000~10000 --temp=-128~128
+    eddystone-beacon-emulator --config --uri=http://goo.gl/eddystone'
+    eddystone-beacon-emulator --uri=http://goo.gl/eddystone'
+  	eddystone-beacon-emulator --nid=http://google.com --bid=123456'
+  	eddystone-beacon-emulator --voltage=0 --temperature=-128
+  	eddystone-beacon-emulator --voltage=5000~10000 --temperature=-128~128
 ```
 
 ## Options

@@ -7,7 +7,7 @@ var eddystone = require('./');
 var cli = meow({
 	help: [
 		'Usage',
-		'  $ eddystone-beacon-simulator --config --name eddystone simulator --uri http://goo.gl/eddystone',
+		'  $ eddystone-beacon-emulator --config --name eddystone emulator --uri http://goo.gl/eddystone',
 		'',
 		'Options',
 		'  --config Run config service firstly and then the other advertisings will be starting',
@@ -21,7 +21,7 @@ var cli = meow({
 	string: 'bid',
 	default: {
 		config: false,
-		name: 'Eddystone beacon simulator',
+		name: 'Eddystone beacon emulator',
 		uri: 'https://goo.gl/r8iJqW',
 		nid: '8b0ca750-e7a7-4e14-bd99-095477cb3e77',
 		bid: 'bid001',
