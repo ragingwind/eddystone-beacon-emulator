@@ -1,6 +1,6 @@
 'use strict';
 
-var debug = require('debug')('eddystone:emulator');
+var debug = require('debug')('eddystone');
 var bleno = require('bleno');
 var beacon = require('eddystone-beacon');
 var uid = require('eddystone-uid');
@@ -9,7 +9,6 @@ var PulseBeat = require('pulsebeat');
 var assign = require('object-assign');
 
 var TX_POWER_MODE_LOW = 1;
-var TX_POWER_MODE_LEVELS = [-100, -30, 0, 20];
 var BEACON_PERIOD_LOWEST = 10;
 
 var defaultBeaconConfig = {};
@@ -124,7 +123,9 @@ function start(opts) {
 
 	// run advertising or configuration service
 	if (opts.config) {
-		configure(advertise);
+		configure(function () {
+			advertise(beaconConfig);
+		});
 	} else {
 		advertise(beaconConfig);
 	}
