@@ -1,6 +1,6 @@
 {
   "name": "eddystone-beacon-emulator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Emulator for Eddystone beacon peripherals",
   "os": [
     "darwin"
@@ -18,8 +18,7 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "files": [
     "index.js",
     "cli.js"
