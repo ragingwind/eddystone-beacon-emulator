@@ -1,5 +1,7 @@
 # eddystone-beacon-emulator
 
+![](http://g.recordit.co/PCLN1yC1Ol.gif)
+
 > Emulator for eddystone beacon peripherals to test and develop eddystone application
 
 ## Install
