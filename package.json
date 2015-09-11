@@ -12,21 +12,24 @@
     "email": "ragingwind@gmail.com",
     "url": "ragingwind.me"
   },
-  "bin": "cli.js",
+  "bin": {
+    "eddystone-beacon-emulator": "cli.js"
+  },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
   },
   "files": [
     "index.js",
     "cli.js"
   ],
   "keywords": [
-    "cli-app",
-    "cli",
-    ""
+    "eddystone",
+    "eddystone configuration service",
+    "emulator",
+    "eddystone-beacon",
+    "bleno"
   ],
   "dependencies": {
     "bleno": "^0.1.14",
