@@ -10,12 +10,12 @@ var cli = meow({
 		'  $ eddystone-beacon-emulator --config --name eddystone emulator --uri http://goo.gl/eddystone',
 		'',
 		'Options',
-		'  --config Run config service firstly and then the other advertisings will be starting',
-		'  --uri URI for advertising',
-		'  --nid Namespace ID, FQDN or UUID which ID will be hashed and truncated in 10Byte',
-		'  --bid Beacon ID for UID advertising',
-		'  --voltage Battery voltage, default is 0mV, or using a range like 500~10000 to randomize',
-		'  --temperature Temperature, default is -128(0x8000), or using a range like -128~128 to randomize'
+		'  --config: Run configuration service firstly and then the other advertisings will be starting',
+		'  --uri: URI for advertising',
+		'  --nid: Namespace ID, FQDN or UUID which ID will be hashed and truncated in 10Byte',
+		'  --bid: Beacon ID for UID advertising',
+		'  --voltage: Battery voltage, default is 0mV, or using a range like 500~10000 to randomize',
+		'  --temperature: Temperature, default is -128(0x8000), or using a range like -128~128 to randomize'
 	]
 }, {
 	string: 'bid',
