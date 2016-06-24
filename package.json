@@ -6,7 +6,7 @@
     "darwin"
   ],
   "license": "MIT",
-  "repository": "ragingwind/node-eddystone-beacon-emulator",
+  "repository": "ragingwind/eddystone-beacon-emulator",
   "author": {
     "name": "ragingwind",
     "email": "ragingwind@gmail.com",
